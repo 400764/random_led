@@ -1,8 +1,3 @@
-let _0 = 0
-let _1 = 0
-let list: number[] = []
-let n = 0
-let a = 0
 input.onButtonPressed(Button.A, function () {
     basic.clearScreen()
     _1 = 1
@@ -12,11 +7,10 @@ input.onButtonPressed(Button.A, function () {
         list.push(_0)
     }
     n = 0
-    while (n < 3) {
-        a = randint(0, 24)
+    while (n < time) {
+        a = randint(1, 25)
         if (list[a] == 0) {
             list[a] = _1
-            n += 1
             if (a % 5 == 0) {
                 led.plot(4, Math.floor(a / 5) - 1)
             } else {
@@ -24,11 +18,26 @@ input.onButtonPressed(Button.A, function () {
                     led.plot(a % 5 - 1, Math.floor(a / 5))
                 }
             }
-        } else {
-            a = randint(0, 24)
+            n += 1
+        }
+        if (list[a] == 1) {
+            n += 0
         }
     }
 })
+input.onButtonPressed(Button.AB, function () {
+    time = 1
+})
+input.onButtonPressed(Button.B, function () {
+    time += 1
+})
+let a = 0
+let n = 0
+let list: number[] = []
+let time = 0
+let _1 = 0
+let _0 = 0
+time = 1
 basic.forever(function () {
 	
 })
